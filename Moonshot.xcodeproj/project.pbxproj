@@ -13,6 +13,8 @@
 		FAB26A8D24BC03BE0037F6B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAB26A8C24BC03BE0037F6B2 /* Assets.xcassets */; };
 		FAB26A9024BC03BE0037F6B2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAB26A8F24BC03BE0037F6B2 /* Preview Assets.xcassets */; };
 		FAB26A9324BC03BE0037F6B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAB26A9124BC03BE0037F6B2 /* LaunchScreen.storyboard */; };
+		FAE7EB3B24BC1BB600484AA2 /* missions.json in Resources */ = {isa = PBXBuildFile; fileRef = FAE7EB3924BC1BB500484AA2 /* missions.json */; };
+		FAE7EB3C24BC1BB600484AA2 /* astronauts.json in Resources */ = {isa = PBXBuildFile; fileRef = FAE7EB3A24BC1BB500484AA2 /* astronauts.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		FAB26A8F24BC03BE0037F6B2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FAB26A9224BC03BE0037F6B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAB26A9424BC03BE0037F6B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAE7EB3924BC1BB500484AA2 /* missions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = missions.json; sourceTree = "<group>"; };
+		FAE7EB3A24BC1BB500484AA2 /* astronauts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = astronauts.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +62,8 @@
 			children = (
 				FAB26A8624BC03BE0037F6B2 /* AppDelegate.swift */,
 				FAB26A8824BC03BE0037F6B2 /* SceneDelegate.swift */,
-				FAB26A8A24BC03BE0037F6B2 /* ContentView.swift */,
+				FAE7EB3D24BC1BBD00484AA2 /* Data */,
+				FAE7EB3E24BC1BC800484AA2 /* Views */,
 				FAB26A8C24BC03BE0037F6B2 /* Assets.xcassets */,
 				FAB26A9124BC03BE0037F6B2 /* LaunchScreen.storyboard */,
 				FAB26A9424BC03BE0037F6B2 /* Info.plist */,
@@ -73,6 +78,23 @@
 				FAB26A8F24BC03BE0037F6B2 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FAE7EB3D24BC1BBD00484AA2 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				FAE7EB3A24BC1BB500484AA2 /* astronauts.json */,
+				FAE7EB3924BC1BB500484AA2 /* missions.json */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		FAE7EB3E24BC1BC800484AA2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FAB26A8A24BC03BE0037F6B2 /* ContentView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,6 +157,8 @@
 			files = (
 				FAB26A9324BC03BE0037F6B2 /* LaunchScreen.storyboard in Resources */,
 				FAB26A9024BC03BE0037F6B2 /* Preview Assets.xcassets in Resources */,
+				FAE7EB3B24BC1BB600484AA2 /* missions.json in Resources */,
+				FAE7EB3C24BC1BB600484AA2 /* astronauts.json in Resources */,
 				FAB26A8D24BC03BE0037F6B2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
