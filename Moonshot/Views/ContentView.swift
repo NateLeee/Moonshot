@@ -26,7 +26,7 @@ struct ContentView: View {
                             Text("\(mission.displayName)")
                                 .font(Font.body.weight(.bold))
                             
-                            Text("\(mission.launchDate ?? "N / A")")
+                            Text("\(mission.formattedDateString)")
                         }
                     }
                     
