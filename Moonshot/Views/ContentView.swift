@@ -11,11 +11,12 @@ import SwiftUI
 
 struct ContentView: View {
     let missions: [Mission] = Bundle.main.decode("missions")
+    let astronauts: [Astronaut] = Bundle.main.decode("astronauts")
     
     var body: some View {
         NavigationView {
             List(missions) { mission in
-                NavigationLink(destination: MissionView(mission)) {
+                NavigationLink(destination: MissionView(mission, self.astronauts)) {
                     HStack {
                         Image(mission.imageName)
                             .resizable()
