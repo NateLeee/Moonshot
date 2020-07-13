@@ -18,4 +18,13 @@ struct Mission: Codable, Identifiable {
     let launchDate: String?
     let crew: [Crew]
     let description: String
+    
+    // MARK: - Not in JSON, other fields
+    var imageName: String {
+        "apollo\(id)"
+    }
+    
+    var displayName: String {
+        "Apollo \(id)"
+    }
 }

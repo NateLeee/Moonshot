@@ -10,25 +10,30 @@ import SwiftUI
 
 
 struct ContentView: View {
-    @State var astronauts = [Astronaut]()
     let missions: [Mission] = Bundle.main.decode("missions")
     
     var body: some View {
-        VStack(spacing: 18) {
-            List(astronauts) { astronaut in
-                Text("\(astronaut.name)")
-            }
-            
+        NavigationView {
             List(missions) { mission in
-                Text("\(mission.id)")
+                NavigationLink(destination: Text("Detail View")) {
+                    HStack {
+                        Image(mission.imageName)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 44, height: 44)
+                        
+                        VStack(alignment: .leading) {
+                            Text("\(mission.displayName)")
+                                .font(Font.body.weight(.bold))
+                            
+                            Text("\(mission.launchDate ?? "N / A")")
+                        }
+                    }
+                    
+                }
             }
+            .navigationBarTitle("Moonshot")
         }
-        .onAppear(perform: decodeData)
-    }
-    
-    private func decodeData() {
-        self.astronauts = Bundle.main.decode("astronauts")
-//        self.missions = Bundle.main.decode("missions")
     }
 }
 
