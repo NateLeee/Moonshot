@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FA58340224BC1FFE00A18100 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA58340124BC1FFE00A18100 /* Bundle-Decodable.swift */; };
+		FA58340424BC2BCB00A18100 /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA58340324BC2BCB00A18100 /* Mission.swift */; };
 		FAB26A8724BC03BE0037F6B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB26A8624BC03BE0037F6B2 /* AppDelegate.swift */; };
 		FAB26A8924BC03BE0037F6B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB26A8824BC03BE0037F6B2 /* SceneDelegate.swift */; };
 		FAB26A8B24BC03BE0037F6B2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB26A8A24BC03BE0037F6B2 /* ContentView.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		FA58340124BC1FFE00A18100 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
+		FA58340324BC2BCB00A18100 /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
 		FAB26A8324BC03BE0037F6B2 /* Moonshot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moonshot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB26A8624BC03BE0037F6B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAB26A8824BC03BE0037F6B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				FAE7EB3F24BC1CBB00484AA2 /* Astronaut.swift */,
+				FA58340324BC2BCB00A18100 /* Mission.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA58340424BC2BCB00A18100 /* Mission.swift in Sources */,
 				FAB26A8724BC03BE0037F6B2 /* AppDelegate.swift in Sources */,
 				FAB26A8924BC03BE0037F6B2 /* SceneDelegate.swift in Sources */,
 				FA58340224BC1FFE00A18100 /* Bundle-Decodable.swift in Sources */,
