@@ -9,7 +9,7 @@
 import Foundation
 
 extension Bundle {
-    func decode(_ fileName: String) -> [Astronaut] {
+    func decode<T: Codable>(_ fileName: String) -> T {
         guard let jsonFileUrl = url(
             forResource: fileName.contains(".") ? fileName.components(separatedBy: ".")[0] : fileName,
             withExtension: fileName.contains(".") ? fileName.components(separatedBy: ".")[1]: "json"
@@ -21,10 +21,10 @@ extension Bundle {
             fatalError("Failed to load \(fileName) in bundle.")
         }
         
-        guard let astronauts = try? JSONDecoder().decode([Astronaut].self, from: data) else {
+        guard let decoded = try? JSONDecoder().decode(T.self, from: data) else {
             fatalError("Failed to decode \(fileName).")
         }
         
-        return astronauts
+        return decoded
     }
 }

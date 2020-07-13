@@ -11,17 +11,24 @@ import SwiftUI
 
 struct ContentView: View {
     @State var astronauts = [Astronaut]()
+    let missions: [Mission] = Bundle.main.decode("missions")
     
     var body: some View {
-        List(astronauts) { astronaut in
-            Text("\(astronaut.name)")
+        VStack(spacing: 18) {
+            List(astronauts) { astronaut in
+                Text("\(astronaut.name)")
+            }
+            
+            List(missions) { mission in
+                Text("\(mission.id)")
+            }
         }
         .onAppear(perform: decodeData)
     }
     
     private func decodeData() {
         self.astronauts = Bundle.main.decode("astronauts")
-        
+//        self.missions = Bundle.main.decode("missions")
     }
 }
 
