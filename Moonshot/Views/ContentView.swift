@@ -20,19 +20,7 @@ struct ContentView: View {
     }
     
     private func decodeData() {
-        // TODO: - Decode!
-        print("decodeData() called!")
-        
-        let decoder = JSONDecoder()
-        
-        guard
-            let dataUrl = Bundle.main.url(forResource: "astronauts", withExtension: "json"),
-            let data = try? Data(contentsOf: dataUrl),
-            let astronauts = try? decoder.decode([Astronaut].self, from: data) else {
-                return
-        }
-        
-        self.astronauts = astronauts
+        self.astronauts = Bundle.main.decode("astronauts")
         
     }
 }
