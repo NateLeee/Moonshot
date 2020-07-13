@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct Astronaut: Codable {
-    var id: String
+struct Astronaut: Codable, Identifiable {
+    var id: String // 'cause here is an id field, protocal Identifiable is allowed!
     var name: String
     var description: String
 }
