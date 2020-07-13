@@ -8,16 +8,35 @@
 
 import SwiftUI
 
+struct Person: Codable {
+    var name: String
+    var address: Address
+}
+
+struct Address: Codable {
+    var street: String
+    var city: String
+}
 
 struct ContentView: View {
+    var input = """
+    {
+        "name": "Taylor Swift",
+        "address": {
+            "street": "555, Taylor Swift Avenue",
+            "city": "Nashville"
+        }
+    }
+    """
+    
     var body: some View {
-        NavigationView {
-            List(0 ..< 100) { row in
-                NavigationLink(destination: Text("Detail View \(row)")) {
-                    Text("Row \(row)")
-                }
+        Button("Decode JSON") {
+            let data = Data(self.input.utf8)
+            
+            let jsonDecoder = JSONDecoder()
+            if let person = try? jsonDecoder.decode(Person.self, from: data) {
+                print("\(person.address.street) - \(person.address.city)")
             }
-            .navigationBarTitle("SwiftUI")
         }
     }
 }
