@@ -40,15 +40,25 @@ struct MissionView: View {
                     
                     ForEach(self.crewMembers, id: \.role) { crewMember in
                         HStack {
-                            Image(crewMember.astronaut.id)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 83, height: 60)
+                            ZStack(alignment: .topLeading) {
+                                Image(crewMember.astronaut.id)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 83, height: 60)
+                                    .clipShape(Capsule())
+                                    .overlay(Capsule().stroke(Color.blue, lineWidth: 1))
+                                    .padding(1)
+                                    .clipShape(Capsule())
+                                    .overlay(Capsule().stroke(Color.red, lineWidth: 1))
+                                    .shadow(color: .gray, radius: 18)
+                                
+                                Text("📎")
+                            }
                             
                             VStack(alignment: .leading) {
                                 Text("\(crewMember.role)")
                                     .font(.caption)
-                                    .foregroundColor(.primary)
+                                    .foregroundColor(.secondary)
                                 
                                 Text("\(crewMember.astronaut.name)")
                                     .font(Font.custom("Avenir Next", size: 18).weight(.light))
