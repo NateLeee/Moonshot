@@ -44,11 +44,14 @@ struct MissionView: View {
                                 Image(crewMember.astronaut.id)
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(width: 83, height: 60)
+                                    .frame(width: 108, height: 69)
                                     .clipShape(Capsule())
                                     .overlay(Capsule().stroke(Color.blue, lineWidth: 1))
                                     .padding(1)
-                                    .clipShape(Capsule())
+                                    .overlay(Capsule().stroke(Color.red, lineWidth: 1))
+                                    .padding(1)
+                                    .overlay(Capsule().stroke(Color.blue, lineWidth: 1))
+                                    .padding(1)
                                     .overlay(Capsule().stroke(Color.red, lineWidth: 1))
                                     .shadow(color: .gray, radius: 18)
                                 
@@ -58,16 +61,20 @@ struct MissionView: View {
                             VStack(alignment: .leading) {
                                 Text("\(crewMember.role)")
                                     .font(.caption)
-                                    .foregroundColor(.secondary)
+                                    .foregroundColor(crewMember.role == "Commander" ? .primary : .secondary)
+                                    .underline(crewMember.role == "Commander", color: .blue)
                                 
                                 Text("\(crewMember.astronaut.name)")
                                     .font(Font.custom("Avenir Next", size: 18).weight(.light))
                                 
                             }
+                            
+                            Spacer()
                         }
+                        .padding(.horizontal)
                     }
                     
-                    Spacer(minLength: 27)
+                    Spacer(minLength: 36)
                 }
             }
             .navigationBarTitle("\(self.mission.displayName)", displayMode: .inline)
