@@ -66,7 +66,7 @@ struct MissionView: View {
                         Spacer()
                     }
                     .padding(.horizontal)
-                    .padding(.bottom, 30)
+                    .padding(.bottom, 21)
                     
                     ForEach(self.crewMembers, id: \.role) { crewMember in
                         NavigationLink(destination: AstronautView(crewMember.astronaut)) {
@@ -74,8 +74,8 @@ struct MissionView: View {
                                 ZStack(alignment: .topLeading) {
                                     Image(crewMember.astronaut.id)
                                         .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 99, height: 63)
+                                        .scaledToFill()
+                                        .frame(width: 90, height: 63)
                                         .clipShape(Capsule())
                                         .overlay(Capsule().stroke(Color.blue, lineWidth: 1))
                                         .padding(1)
@@ -100,6 +100,7 @@ struct MissionView: View {
                                         .padding(.top, 6)
                                     
                                 }
+                                .padding(.leading, 12)
                                 
                                 Spacer()
                             }

@@ -32,10 +32,10 @@ struct ContentView: View {
                             
                             if (!self.showingCrewName) {
                                 Text("\(mission.formattedDateString)")
-                                    .font(Font.custom("Hoefler Text", size: 13).weight(.light))
+                                    .font(Font.custom("Courier New", size: 13).weight(.light))
                             } else {
                                 Text("\(self.getCrewNames(mission))")
-                                    .font(Font.custom("Hoefler Text", size: 11).weight(.light))
+                                    .font(Font.custom("Courier New", size: 11).weight(.light))
                             }
                         }
                         .padding(.horizontal, 9)
