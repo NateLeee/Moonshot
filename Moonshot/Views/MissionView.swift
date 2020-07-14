@@ -38,43 +38,52 @@ struct MissionView: View {
                         Spacer(minLength: 18)
                     }
                     
+                    Spacer(minLength: 27)
+                    
                     ForEach(self.crewMembers, id: \.role) { crewMember in
-                        HStack {
-                            ZStack(alignment: .topLeading) {
-                                Image(crewMember.astronaut.id)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 108, height: 69)
-                                    .clipShape(Capsule())
-                                    .overlay(Capsule().stroke(Color.blue, lineWidth: 1))
-                                    .padding(1)
-                                    .overlay(Capsule().stroke(Color.red, lineWidth: 1))
-                                    .padding(1)
-                                    .overlay(Capsule().stroke(Color.blue, lineWidth: 1))
-                                    .padding(1)
-                                    .overlay(Capsule().stroke(Color.red, lineWidth: 1))
-                                    .shadow(color: .gray, radius: 18)
+                        Button(action: {
+                            //
+                            print("Haha")
+                        }) {
+                            HStack {
+                                ZStack(alignment: .topLeading) {
+                                    Image(crewMember.astronaut.id)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 108, height: 69)
+                                        .clipShape(Capsule())
+                                        .overlay(Capsule().stroke(Color.blue, lineWidth: 1))
+                                        .padding(1)
+                                        .overlay(Capsule().stroke(Color.red, lineWidth: 1))
+                                        .padding(1)
+                                        .overlay(Capsule().stroke(Color.blue, lineWidth: 1))
+                                        .padding(1)
+                                        .overlay(Capsule().stroke(Color.red, lineWidth: 1))
+                                        .shadow(color: .gray, radius: 18)
+                                    
+                                    Text("📎")
+                                }
                                 
-                                Text("📎")
+                                VStack(alignment: .leading) {
+                                    Text("\(crewMember.role)")
+                                        .font(.caption)
+                                        .foregroundColor(crewMember.role == "Commander" ? .primary : .secondary)
+                                        .underline(crewMember.role == "Commander", color: .blue)
+                                    
+                                    Text("\(crewMember.astronaut.name)")
+                                        .font(Font.custom("Avenir Next", size: 18).weight(.light))
+                                    
+                                }
+                                
+                                Spacer()
                             }
+                            .padding(.horizontal)
                             
-                            VStack(alignment: .leading) {
-                                Text("\(crewMember.role)")
-                                    .font(.caption)
-                                    .foregroundColor(crewMember.role == "Commander" ? .primary : .secondary)
-                                    .underline(crewMember.role == "Commander", color: .blue)
-                                
-                                Text("\(crewMember.astronaut.name)")
-                                    .font(Font.custom("Avenir Next", size: 18).weight(.light))
-                                
-                            }
-                            
-                            Spacer()
                         }
-                        .padding(.horizontal)
+                        .buttonStyle(PlainButtonStyle())
                     }
                     
-                    Spacer(minLength: 36)
+                    Spacer(minLength: 45)
                 }
             }
             .navigationBarTitle("\(self.mission.displayName)", displayMode: .inline)
