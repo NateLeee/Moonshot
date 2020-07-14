@@ -66,7 +66,7 @@ struct MissionView: View {
                         Spacer()
                     }
                     .padding(.horizontal)
-                    .padding(.bottom, 45)
+                    .padding(.bottom, 30)
                     
                     ForEach(self.crewMembers, id: \.role) { crewMember in
                         NavigationLink(destination: AstronautView(crewMember.astronaut)) {
@@ -109,7 +109,7 @@ struct MissionView: View {
                         .buttonStyle(PlainButtonStyle())
                     }
                     
-                    Spacer(minLength: 45)
+                    Spacer(minLength: 54)
                 }
             }
             .navigationBarTitle("\(self.mission.displayName)", displayMode: .inline)
