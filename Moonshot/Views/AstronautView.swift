@@ -14,12 +14,28 @@ struct AstronautView: View {
     var body: some View {
         GeometryReader { geometryProxy in
             ScrollView(.vertical) {
-                VStack {
-                    Image(self.astronaut.id)
-                    
-                    Text(self.astronaut.name)
+                VStack(spacing: 27) {
+                    ZStack(alignment: .bottomTrailing) {
+                        Image(self.astronaut.id)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: geometryProxy.size.width)
+                        
+                        Text(self.astronaut.name)
+                            // .font(.title)
+                            .font(Font.custom("Courier New", size: 21))
+                            .foregroundColor(.white)
+                            .padding(.bottom, 9)
+                            .padding(.trailing, 9)
+                            .shadow(color: .black, radius: 6)
+                    }
                     
                     Text(self.astronaut.description)
+                        .font(Font.custom("Hoefler Text", size: 16))
+                        .lineSpacing(3)
+                        .padding(.horizontal)
+                    
+                    Spacer(minLength: 45)
                 }
             }
         }

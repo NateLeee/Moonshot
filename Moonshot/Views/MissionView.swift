@@ -17,7 +17,7 @@ struct MissionView: View {
     }
     
     let crewMembers: [CrewMember]
-    
+    let astronauts: [Astronaut] = Bundle.main.decode("astronauts")
     
     var body: some View {
         GeometryReader { geometryProxy in
@@ -34,6 +34,8 @@ struct MissionView: View {
                         Spacer(minLength: 18)
                         
                         Text(self.mission.description)
+                            .font(Font.custom("Hoefler Text", size: 16))
+                            .lineSpacing(3)
                         
                         Spacer(minLength: 18)
                     }
@@ -41,16 +43,13 @@ struct MissionView: View {
                     Spacer(minLength: 27)
                     
                     ForEach(self.crewMembers, id: \.role) { crewMember in
-                        Button(action: {
-                            //
-                            print("Haha")
-                        }) {
+                        NavigationLink(destination: AstronautView(crewMember.astronaut)) {
                             HStack {
                                 ZStack(alignment: .topLeading) {
                                     Image(crewMember.astronaut.id)
                                         .resizable()
                                         .scaledToFit()
-                                        .frame(width: 108, height: 69)
+                                        .frame(width: 99, height: 63)
                                         .clipShape(Capsule())
                                         .overlay(Capsule().stroke(Color.blue, lineWidth: 1))
                                         .padding(1)
@@ -66,12 +65,13 @@ struct MissionView: View {
                                 
                                 VStack(alignment: .leading) {
                                     Text("\(crewMember.role)")
-                                        .font(.caption)
+                                        .font(Font.custom("Courier New", size: 13))
                                         .foregroundColor(crewMember.role == "Commander" ? .primary : .secondary)
                                         .underline(crewMember.role == "Commander", color: .blue)
                                     
                                     Text("\(crewMember.astronaut.name)")
-                                        .font(Font.custom("Avenir Next", size: 18).weight(.light))
+                                        .font(Font.custom("Courier New", size: 16).weight(.light))
+                                        .padding(.top, 6)
                                     
                                 }
                                 
