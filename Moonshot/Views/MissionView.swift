@@ -49,6 +49,25 @@ struct MissionView: View {
                     
                     Spacer(minLength: 27)
                     
+                    // For better layout.
+                    ZStack(alignment: .leading) {
+                        Divider()
+                            .padding(.horizontal)
+                        
+                        Text("👨‍🚀")
+                            .font(.system(size: 36))
+                            .padding(.horizontal, 27)
+                    }
+                    
+                    HStack {
+                        Text("Crews")
+                            .font(Font.custom("Courier New", size: 20).weight(.bold))
+                        
+                        Spacer()
+                    }
+                    .padding(.horizontal)
+                    .padding(.bottom, 45)
+                    
                     ForEach(self.crewMembers, id: \.role) { crewMember in
                         NavigationLink(destination: AstronautView(crewMember.astronaut)) {
                             HStack {
