@@ -22,7 +22,6 @@ struct AstronautView: View {
                             .frame(width: geometryProxy.size.width)
                         
                         Text(self.astronaut.name)
-                            // .font(.title)
                             .font(Font.custom("Courier New", size: 21))
                             .foregroundColor(.white)
                             .padding(.bottom, 9)
@@ -34,6 +33,7 @@ struct AstronautView: View {
                         .font(Font.custom("Hoefler Text", size: 16))
                         .lineSpacing(3)
                         .padding(.horizontal)
+                        .layoutPriority(1) // Kinda important!
                     
                     Spacer(minLength: 45)
                 }
