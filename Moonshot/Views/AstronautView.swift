@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct AstronautView: View {
+    let astronauts: [Astronaut] = Bundle.main.decode("astronauts")
     let astronaut: Astronaut
     let missions: [Mission]
     
@@ -57,24 +58,27 @@ struct AstronautView: View {
                     
                     // Challenge II: - Show all the missions this astronaut flew on.
                     ForEach(self.missions) { mission in
-                        HStack {
-                            Image(mission.imageName)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 72)
-                            
-                            VStack(alignment: .leading, spacing: 9) {
-                                Text("\(mission.displayName)")
-                                    .font(Font.custom("Courier New", size: 15).bold())
-                                    .underline()
+                        NavigationLink(destination: MissionView(mission, self.astronauts)) {
+                            HStack {
+                                Image(mission.imageName)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 72)
                                 
-                                Text("Launch Date: \(mission.formattedDateString)")
-                                    .font(Font.custom("Courier New", size: 14))
+                                VStack(alignment: .leading, spacing: 9) {
+                                    Text("\(mission.displayName)")
+                                        .font(Font.custom("Courier New", size: 15).bold())
+                                        .underline()
+                                    
+                                    Text("Launch Date: \(mission.formattedDateString)")
+                                        .font(Font.custom("Courier New", size: 14))
+                                }
+                                
+                                Spacer()
                             }
-                            
-                            Spacer()
+                            .padding(.horizontal)
                         }
-                        .padding(.horizontal)
+                        .buttonStyle(PlainButtonStyle())
                     }
                     
                     Spacer(minLength: 45)
