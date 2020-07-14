@@ -10,6 +10,7 @@ import SwiftUI
 
 struct AstronautView: View {
     let astronaut: Astronaut
+    let missions: [Mission]
     
     var body: some View {
         GeometryReader { geometryProxy in
@@ -36,6 +37,46 @@ struct AstronautView: View {
                         .padding(.horizontal)
                         .layoutPriority(1) // Kinda important!
                     
+                    // For better layout.
+                    ZStack(alignment: .leading) {
+                        Divider()
+                            .padding(.horizontal)
+                        
+                        Text("📋")
+                            .font(.system(size: 45))
+                            .padding(.horizontal, 27)
+                    }
+                    
+                    HStack {
+                        Text("Involved Mission\(self.missions.count > 1 ? "s" : "")")
+                            .font(Font.custom("Courier New", size: 20).weight(.bold))
+                        
+                        Spacer()
+                    }
+                    .padding(.horizontal)
+                    
+                    // Challenge II: - Show all the missions this astronaut flew on.
+                    ForEach(self.missions) { mission in
+                        HStack {
+                            Image(mission.imageName)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 72)
+                            
+                            VStack(alignment: .leading, spacing: 9) {
+                                Text("\(mission.displayName)")
+                                    .font(Font.custom("Courier New", size: 15).bold())
+                                    .underline()
+                                
+                                Text("Launch Date: \(mission.formattedDateString)")
+                                    .font(Font.custom("Courier New", size: 14))
+                            }
+                            
+                            Spacer()
+                        }
+                        .padding(.horizontal)
+                    }
+                    
                     Spacer(minLength: 45)
                 }
             }
@@ -44,6 +85,23 @@ struct AstronautView: View {
     
     init(_ astronaut: Astronaut) {
         self.astronaut = astronaut
+        self.missions = AstronautView.getMissions(by: astronaut.id)
+    }
+    
+    static func getMissions(by astronautId: String) -> [Mission] {
+        let allMissions: [Mission] = Bundle.main.decode("missions")
+        
+        let pickedMissions = allMissions.map { (mission) -> Mission? in
+            let crews = mission.crew
+            
+            let a = crews.first { (crew) -> Bool in
+                crew.name == astronautId
+            }
+            
+            return a != nil ? mission : nil
+        }.compactMap { mission in mission }
+        
+        return pickedMissions
     }
 }
 
