@@ -25,10 +25,13 @@ struct ContentView: View {
                         
                         VStack(alignment: .leading) {
                             Text("\(mission.displayName)")
-                                .font(Font.body.weight(.bold))
+                                .font(Font.custom("Courier New", size: 16).weight(.bold))
+                                .padding(.bottom, 6)
                             
                             Text("\(mission.formattedDateString)")
+                                .font(Font.custom("Hoefler Text", size: 13).weight(.light))
                         }
+                        .padding(.horizontal, 9)
                     }
                     
                 }
