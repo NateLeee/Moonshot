@@ -22,6 +22,7 @@ struct AstronautView: View {
                             .frame(width: geometryProxy.size.width)
                         
                         Text(self.astronaut.name)
+                            .underline()
                             .font(Font.custom("Courier New", size: 21))
                             .foregroundColor(.white)
                             .padding(.bottom, 9)

@@ -28,7 +28,13 @@ struct MissionView: View {
                         .scaledToFit()
                         .frame(width: geometryProxy.size.width * 0.69)
                         .padding(.top, 27)
-                        .padding(.bottom, 45)
+                    
+                    // Challenge I: - Add the launch date to MissionView, below the mission badge.
+                    if (self.mission.launchDate != nil) {
+                        Text("\(self.mission.formattedDateString)")
+                            .font(Font.custom("Courier New", size: 18).bold())
+                            .underline(color: .secondary)
+                    }
                     
                     HStack {
                         Spacer(minLength: 18)
@@ -39,6 +45,7 @@ struct MissionView: View {
                         
                         Spacer(minLength: 18)
                     }
+                    .padding(.top, 36)
                     
                     Spacer(minLength: 27)
                     
